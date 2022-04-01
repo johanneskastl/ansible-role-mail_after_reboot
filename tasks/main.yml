@@ -23,8 +23,7 @@
 # flush handlers to run the systemctl daemon-reload
 - meta: flush_handlers
 
-- name: 'Start and enable the mail_after_reboot.service'
+- name: 'Enable the mail_after_reboot.service'
   service:
     name: 'mail_after_reboot.service'
-    state: 'started'
     enabled: 'true'
