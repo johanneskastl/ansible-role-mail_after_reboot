@@ -6,7 +6,7 @@ Create a systemd service that sends a mail after each reboot of the machine (aka
 Requirements
 ------------
 
-None.
+The machine must be able to send mails, i.e. it must have a working MTA like Postfix or some nullmailer etc.
 
 Role Variables
 --------------
