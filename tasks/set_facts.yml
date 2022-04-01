@@ -1,0 +1,8 @@
+---
+# mail_after_reboot/tasks/set_facts.yml
+
+- name: 'Set variable to use s-nail on Debian and derivatives'
+  set_fact:
+    mail_executable: '/usr/bin/s-nail'
+    mail_package_name: 's-nail'
+  when: 'ansible_os_family == "Debian"'
