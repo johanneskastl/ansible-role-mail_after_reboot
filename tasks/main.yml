@@ -1,0 +1,30 @@
+---
+# mail_after_reboot/tasks/main.yml
+
+- name: 'set facts depending on operation system, to get the right package and executable'
+  include: set_facts.yml
+
+- name: 'Install the package for the mail executable'
+  package:
+    name: "{{ mail_package_name }}"
+    state: 'present'
+
+- name: 'Create systemd service file for mail_after_reboot.service'
+  template:
+    src: 'mail_after_reboot.service.j2'
+    dest: '/etc/systemd/system/mail_after_reboot.service'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify:
+    - 'Trigger systemctl daemon-reload'
+    - 'Restart the mail_after_reboot.service'
+
+# flush handlers to run the systemctl daemon-reload
+- meta: flush_handlers
+
+- name: 'Start and enable the mail_after_reboot.service'
+  service:
+    name: 'mail_after_reboot.service'
+    state: 'started'
+    enabled: 'true'
