@@ -1,0 +1,4 @@
+---
+# mail_after_reboot/defaults/main.yml
+
+mail_recipient: 'root'
