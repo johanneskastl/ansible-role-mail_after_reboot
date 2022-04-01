@@ -6,3 +6,8 @@
     mail_executable: '/usr/bin/s-nail'
     mail_package_name: 's-nail'
   when: 'ansible_os_family == "Debian"'
+
+- name: 'Set variable to use mailx on SUSE/openSUSE'
+  set_fact:
+    mail_package_name: 'mailx'
+  when: 'ansible_os_family == "Suse" or ansible_os_family == "openSUSE MicroOS"'
