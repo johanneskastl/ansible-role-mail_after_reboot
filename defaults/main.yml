@@ -3,3 +3,4 @@
 
 mail_recipient: 'root'
 mail_executable: '/usr/bin/mail'
+mail_after_reboot_dependency: 'postfix.service'
