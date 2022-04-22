@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'mail_after_reboot'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Create a systemd service that sends a mail after each reboot of the machine (aka during startup)'
   company: 'B1 Systems GmbH'
