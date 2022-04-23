@@ -20,8 +20,8 @@
     - 'Trigger systemctl daemon-reload'
     - 'Restart the mail_after_reboot.service'
 
-# flush handlers to run the systemctl daemon-reload
-- meta: flush_handlers
+- name: 'flush handlers to run the systemctl daemon-reload'
+  meta: flush_handlers
 
 - name: 'Enable the mail_after_reboot.service'
   service:
