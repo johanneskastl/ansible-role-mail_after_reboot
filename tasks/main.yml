@@ -2,7 +2,7 @@
 # mail_after_reboot/tasks/main.yml
 
 - name: 'set facts depending on operation system, to get the right package and executable'
-  ansible.builtin.include: set_facts.yml
+  ansible.builtin.include_tasks: set_facts.yml
 
 - name: 'Install the package for the mail executable'
   ansible.builtin.package:
