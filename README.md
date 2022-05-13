@@ -1,3 +1,5 @@
+![Ansible Lint](https://github.com/johanneskastl/ansible-role-mail_after_reboot/workflows/Ansible%20Lint/badge.svg)
+
 mail_after_reboot
 =========
 
