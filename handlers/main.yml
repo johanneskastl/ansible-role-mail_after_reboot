@@ -2,10 +2,10 @@
 # mail_after_reboot/handlers/main.yml
 
 - name: 'Trigger systemctl daemon-reload'
-  systemd:
+  ansible.builtin.systemd:
     daemon_reload: 'yes'
 
 - name: 'Restart the mail_after_reboot.service'
-  service:
+  ansible.builtin.service:
     name: 'mail_after_reboot.service'
     state: 'restarted'
