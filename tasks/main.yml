@@ -2,15 +2,15 @@
 # mail_after_reboot/tasks/main.yml
 
 - name: 'set facts depending on operation system, to get the right package and executable'
-  include: set_facts.yml
+  ansible.builtin.include: set_facts.yml
 
 - name: 'Install the package for the mail executable'
-  package:
+  ansible.builtin.package:
     name: "{{ mail_package_name }}"
     state: 'present'
 
 - name: 'Create systemd service file for mail_after_reboot.service'
-  template:
+  ansible.builtin.template:
     src: 'mail_after_reboot.service.j2'
     dest: "{{ systemd_unit_directory }}/mail_after_reboot.service"
     owner: 'root'
@@ -21,9 +21,9 @@
     - 'Restart the mail_after_reboot.service'
 
 - name: 'flush handlers to run the systemctl daemon-reload'
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers
 
 - name: 'Enable the mail_after_reboot.service'
-  service:
+  ansible.builtin.service:
     name: 'mail_after_reboot.service'
     enabled: 'true'
