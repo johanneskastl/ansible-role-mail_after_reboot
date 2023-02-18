@@ -13,14 +13,14 @@
     mail_package_name: 'mailx'
   when:
     - 'ansible_os_family == "RedHat"'
-    - 'ansible_distribution_major_version == "7"'
+    - 'ansible_distribution_major_version | int == 7'
 
 - name: 'Set variable to use mailx on RHEL8/CentOS8/RockyLinux8/AlmaLinux8'
   ansible.builtin.set_fact:
     mail_package_name: 'mailx'
   when:
     - 'ansible_os_family == "RedHat" or ansible_os_family == "Rocky"'
-    - 'ansible_distribution_major_version == "8"'
+    - 'ansible_distribution_major_version | int == 8'
 
 - name: 'Set variable to use mailx on SUSE/openSUSE'
   ansible.builtin.set_fact:
