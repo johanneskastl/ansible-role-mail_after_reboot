@@ -42,4 +42,5 @@
     - '
       ansible_os_family == "Suse"
       or ansible_os_family == "openSUSE MicroOS"
+      or ansible_os_family == "openSUSE Leap Micro"
       '
