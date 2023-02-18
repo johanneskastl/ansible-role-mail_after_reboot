@@ -19,7 +19,10 @@
   ansible.builtin.set_fact:
     mail_package_name: 'mailx'
   when:
-    - 'ansible_os_family == "RedHat" or ansible_os_family == "Rocky"'
+    - '
+      ansible_os_family == "RedHat"
+      or ansible_os_family == "Rocky"
+      '
     - 'ansible_distribution_major_version | int == 8'
 
 - name: 'Set variable to use mailx on SUSE/openSUSE'
