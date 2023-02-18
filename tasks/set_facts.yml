@@ -5,7 +5,8 @@
   ansible.builtin.set_fact:
     mail_executable: '/usr/bin/s-nail'
     mail_package_name: 's-nail'
-  when: 'ansible_os_family == "Debian"'
+  when:
+    - 'ansible_os_family == "Debian"'
 
 - name: 'Set variable to use mailx on RHEL7/CentOS7'
   ansible.builtin.set_fact:
@@ -24,4 +25,5 @@
 - name: 'Set variable to use mailx on SUSE/openSUSE'
   ansible.builtin.set_fact:
     mail_package_name: 'mailx'
-  when: 'ansible_os_family == "Suse" or ansible_os_family == "openSUSE MicroOS"'
+  when:
+    - 'ansible_os_family == "Suse" or ansible_os_family == "openSUSE MicroOS"'
