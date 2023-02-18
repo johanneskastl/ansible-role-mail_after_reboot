@@ -25,6 +25,9 @@
     - 'Reboot'
     - 'Wait for the machine(s) to be ready again'
 
+- name: 'Flush handlers to reboot the system, if needed'
+  ansible.builtin.meta: flush_handlers
+
 - name: 'Create systemd service file for mail_after_reboot.service'
   ansible.builtin.template:
     src: 'mail_after_reboot.service.j2'
