@@ -25,7 +25,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-        - { role: 'johanneskastl.mail_after_reboot' }
+        - role: 'johanneskastl.mail_after_reboot'
 
 License
 -------
