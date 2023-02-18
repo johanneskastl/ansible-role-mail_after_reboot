@@ -12,6 +12,19 @@
     - 'ansible_os_family != "openSUSE MicroOS"'
     - 'ansible_os_family != "openSUSE Leap Micro"'
 
+- name: 'Install the package for the mail executable without a reboot'
+  ansible.builtin.package:
+    name: "{{ mail_package_name }}"
+    state: 'present'
+  when:
+    - '
+      ansible_os_family == "openSUSE MicroOS"
+      or ansible_os_family == "openSUSE Leap Micro"
+      '
+  notify:
+    - 'Reboot'
+    - 'Wait for the machine(s) to be ready again'
+
 - name: 'Create systemd service file for mail_after_reboot.service'
   ansible.builtin.template:
     src: 'mail_after_reboot.service.j2'
