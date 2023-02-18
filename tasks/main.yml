@@ -4,10 +4,13 @@
 - name: 'Set facts depending on operation system, to get the right package and executable'
   ansible.builtin.include_tasks: set_facts.yml
 
-- name: 'Install the package for the mail executable'
+- name: 'Install the package for the mail executable without a reboot'
   ansible.builtin.package:
     name: "{{ mail_package_name }}"
     state: 'present'
+  when:
+    - 'ansible_os_family != "openSUSE MicroOS"'
+    - 'ansible_os_family != "openSUSE Leap Micro"'
 
 - name: 'Create systemd service file for mail_after_reboot.service'
   ansible.builtin.template:
