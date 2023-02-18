@@ -25,6 +25,16 @@
       '
     - 'ansible_distribution_major_version | int == 8'
 
+- name: 'Set variable to use s-nail on RHEL9/CentOS9/RockyLinux9/AlmaLinux9 or later'
+  ansible.builtin.set_fact:
+    mail_package_name: 's-nail'
+  when:
+    - '
+      ansible_os_family == "RedHat"
+      or ansible_os_family == "Rocky"
+      '
+    - 'ansible_distribution_major_version | int >= 9'
+
 - name: 'Set variable to use mailx on SUSE/openSUSE'
   ansible.builtin.set_fact:
     mail_package_name: 'mailx'
