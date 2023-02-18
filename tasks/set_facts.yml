@@ -39,4 +39,7 @@
   ansible.builtin.set_fact:
     mail_package_name: 'mailx'
   when:
-    - 'ansible_os_family == "Suse" or ansible_os_family == "openSUSE MicroOS"'
+    - '
+      ansible_os_family == "Suse"
+      or ansible_os_family == "openSUSE MicroOS"
+      '
