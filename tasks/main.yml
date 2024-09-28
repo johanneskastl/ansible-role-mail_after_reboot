@@ -13,7 +13,7 @@
     - 'not ansible_os_family == "openSUSE Leap Micro"'
     - 'not ansible_pkg_mgr == "atomic_container"'
 
-- name: 'Install the package for the mail executable without a reboot'
+- name: 'Install the package for the mail executable with a reboot'
   ansible.builtin.package:
     name: "{{ mail_package_name }}"
     state: 'present'
